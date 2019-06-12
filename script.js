@@ -1,35 +1,49 @@
 document.getElementById("inputButton").addEventListener('click',() => {
-	processSearch(document.getElementById('input').value);
+	processSearch(document.getElementById('input').value, 'byId');
  });
 
 document.getElementById("inputTypeButton").addEventListener('click',() => {
-	processSearchByType(document.getElementById('inputType').value);
+	processSearch(document.getElementById('inputType').value, 'byType');
+});
+
+document.getElementById("inputPriceButton").addEventListener('click',() => {
+	processSearch(document.getElementById('inputPrice').value, 'byPrice');
 });
  
  api.searchAllProducts().then((value) => {
 		 updateTable('allTable',value);
  });
  
- function processSearch(searchId){
-		 api.searchProductById(searchId).then((val) => {
-		 return Promise.all([api.searchProductsByPrice(val.price,50),api.searchProductsByType(val.type),val]);
-		 }).then((val) => {
-		 let similarArray = getIntersection(val[0],val[1],val[2].id);
-		 updateExaminedText(val[2]);
-		 updateTable('similarTable',similarArray);
-		 }).catch((val) => {
-		 alert(val);
-		 });
- }
-
- function processSearchByType(type) {
-  api.searchProductsByType(type)
-    .then((typeArr) => {
-			updateExaminedText(typeArr[0]);
-      updateTable('similarTable', typeArr);
-    }).catch((err) => {
-			alert(err);
-		});
+ function processSearch(value, type) {
+  if (type === 'byId') {
+    api.searchProductById(value).then((val) => {
+        return Promise.all([api.searchProductsByPrice(val.price, 50), api.searchProductsByType(val.type), val]);
+      }).then((val) => {
+        var similarArray = getIntersection(val[0], val[1], val[2].id);
+        updateExaminedText(val[2]);
+        updateTable('similarTable', similarArray);
+      }).catch((val) => {
+        alert(val);
+      });
+  } else if (type === 'byType') {
+    api.searchProductsByType(value)
+      .then((valueArray) => {
+				updateExaminedText(valueArray[0])
+        updateTable('similarTable', valueArray);
+      })
+      .catch(err => {
+        alert(err);
+      });
+  } else if (type === 'byPrice') {
+    api.searchProductsByPrice(value, 50)
+      .then((valueArray) => {
+				updateExaminedText(valueArray[0])
+        updateTable('similarTable', valueArray);
+      })
+      .catch(err => {
+        alert(err);
+      });
+  } else return;
 }
  
  function getIntersection(arrA, arrB, searchedId){
