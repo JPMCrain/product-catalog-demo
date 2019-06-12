@@ -1,13 +1,13 @@
 document.getElementById("inputButton").addEventListener('click',() => {
-	processSearch(document.getElementById('input').value, 'byId');
+	processSearch(document.getElementById('input').value, 'Id');
  });
 
 document.getElementById("inputTypeButton").addEventListener('click',() => {
-	processSearch(document.getElementById('inputType').value, 'byType');
+	processSearch(document.getElementById('inputType').value, 'Type');
 });
 
 document.getElementById("inputPriceButton").addEventListener('click',() => {
-	processSearch(document.getElementById('inputPrice').value, 'byPrice');
+	processSearch(document.getElementById('inputPrice').value, 'Price');
 });
  
  api.searchAllProducts().then((value) => {
@@ -15,7 +15,7 @@ document.getElementById("inputPriceButton").addEventListener('click',() => {
  });
  
  function processSearch(value, type) {
-  if (type === 'byId') {
+  if (type === 'Id') {
     api.searchProductById(value).then((val) => {
         return Promise.all([api.searchProductsByPrice(val.price, 50), api.searchProductsByType(val.type), val]);
       }).then((val) => {
@@ -25,7 +25,7 @@ document.getElementById("inputPriceButton").addEventListener('click',() => {
       }).catch((val) => {
         alert(val);
       });
-  } else if (type === 'byType') {
+  } else if (type === 'Type') {
     api.searchProductsByType(value)
       .then((valueArray) => {
 				updateExaminedText(valueArray[0])
@@ -34,7 +34,7 @@ document.getElementById("inputPriceButton").addEventListener('click',() => {
       .catch(err => {
         alert(err);
       });
-  } else if (type === 'byPrice') {
+  } else if (type === 'Price') {
     api.searchProductsByPrice(value, 50)
       .then((valueArray) => {
 				updateExaminedText(valueArray[0])
