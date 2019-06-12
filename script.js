@@ -1,6 +1,10 @@
 document.getElementById("inputButton").addEventListener('click',() => {
 	processSearch(document.getElementById('input').value);
  });
+
+document.getElementById("inputTypeButton").addEventListener('click',() => {
+	processSearchByType(document.getElementById('inputType').value);
+});
  
  api.searchAllProducts().then((value) => {
 		 updateTable('allTable',value);
@@ -17,6 +21,16 @@ document.getElementById("inputButton").addEventListener('click',() => {
 		 alert(val);
 		 });
  }
+
+ function processSearchByType(type) {
+  api.searchProductsByType(type)
+    .then((typeArr) => {
+			updateExaminedText(typeArr[0]);
+      updateTable('similarTable', typeArr);
+    }).catch((err) => {
+			alert(err);
+		});
+}
  
  function getIntersection(arrA, arrB, searchedId){
 		 let samePrice = arrA;
