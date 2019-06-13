@@ -1,0 +1,83 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #134ba5; 
+	color: snow;
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	margin-top: -21px;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	background-color: #4286f4;
+	color: #134ba5;
+}
+
+.search__wrapper {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.search {
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+input {
+	outline: none;
+	padding-left: 5px;
+	border: none;
+	color: snow;
+	background-color: #134ba5;
+	border-bottom: 1px solid black;
+}
+
+input:hover {
+	border-bottom: 2px solid black;
+}
+
+button {
+	padding: 5px;
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	background-color: #4286f4;
+	color: snow;
+	opacity: 0.7;
+}
+
+button:hover {
+	opacity: 1;
+}
+
+h3 {
+	font-size: 16px;
+	text-decoration: underline;
+}
+
+.content__wrapper {
+	display: flex;
+	width: 100%;
+	height: auto;
+	justify-content: space-around;
+}
+
+table, tr, td {
+	border: 1px solid black;
+	outline: none;
+}
+
+th, td {
+	padding: 5px;
+	text-align: center;
+}
+
+.ExButton {
+	margin-left: 10px;
+	margin-top: 2px;
+}

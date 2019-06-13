@@ -104,6 +104,7 @@ document.getElementById("inputPriceButton").addEventListener('click',() => {
 				 let td2 = document.createElement('TD');
 				 let td3 = document.createElement('TD');
 				 let td4 = document.createElement('button');
+				 td4.classList.add('ExButton');
  
 				 td4.addEventListener('click', function(){
 						 processSearch(this.parentNode.firstChild.innerHTML);

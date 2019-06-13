@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+	<link rel="stylesheet" href="./style.css">
+
 	<script src="./library.js" defer></script>
 	<script src="./script.js" defer></script>
 
@@ -13,46 +15,58 @@
 </head>
 
 <body>
+	<div class="header">
+		<h1>Product Catalog Demo</h1>
+	</div>
 
-	<div>
-		<h3>Search Product by Id</h3>
-		<input id="input">
-		<button id="inputButton">Search Product Id</button>
+	<div class="search__wrapper">
+		<div class="search">
+			<h3>Search Product by Id</h3>
+			<input id="input">
+			<button id="inputButton">Search Product Id</button>
+		</div>
+		<div class="search">
+			<h3>Search Product by Type</h3>
+			<input id="inputType">
+			<button id="inputTypeButton">Search Product Type</button>
+		</div>
+		<div class="search">
+			<h3>Search Product by Price</h3>
+			<input id="inputPrice">
+			<button id="inputPriceButton">Search Product Price</button>
+		</div>
 	</div>
-	<div>
-		<h3>Search Product by Type</h3>
-		<input id="inputType">
-		<button id="inputTypeButton">Search Product Type</button>
+	<div class="content__wrapper">
+		<div class="examine">
+			<h3>Examined Product</h3>
+			<p id="productText">Product Id: <br>Price: <br>Type: </p>
+		</div>
+
+		<div class="sTable__wrapper">
+			<h3>List of Similar Products</h3>
+			<table id="similarTable" width="300px" border="1">
+				<tr>
+					<th>ProductId</th>
+					<th>Type</th>
+					<th>Price</th>
+					<th>Examine</th>
+				</tr>
+			</table>
+		</div>
+
+		<div class="aTable__wrapper">
+			<h3>List of All Products</h3>
+			<table id="allTable" width="300px" border="1">
+				<tr>
+					<th>ProductId</th>
+					<th>Type</th>
+					<th>Price</th>
+					<th>Examine</th>
+				</tr>
+			</table>
+		</div>
 	</div>
-	<div>
-		<h3>Search Product by Price</h3>
-		<input id="inputPrice">
-		<button id="inputPriceButton">Search Product Price</button>
-	</div>
-	<div>
-		<h3>Examined Product</h3>
-		<p id="productText">Product Id: <br>Price: <br>Type: </p>
-		<h3>List of Similar Products</h3>
-		<table id="similarTable" width="300px" border="1">
-			<tr>
-				<th>ProductId</th>
-				<th>Type</th>
-				<th>Price</th>
-				<th>Examine</th>
-			</tr>
-		</table>
-	</div>
-	<div>
-		<h3>List of All Products</h3>
-		<table id="allTable" width="300px" border="1">
-			<tr>
-				<th>ProductId</th>
-				<th>Type</th>
-				<th>Price</th>
-				<th>Examine</th>
-			</tr>
-		</table>
-	</div>
+
 
 </body>
 
